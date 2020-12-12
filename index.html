@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- <style>
+      body {
+         background-image: url("https://i.pinimg.com/736x/47/2e/05/472e056c05aab842980e3af1ff08d9b1.jpg");
+        }
+    </style> -->
+
+<body>
+    </head>
+
+    <div class="row">
+        <div class="col s12 m6 l6">
+            <h2>ADD NEW ARTIST</h2>
+            <form id="artist-form" class="form-class" action="create">
+                <div class="input-field">
+                    <input type="text" name="name" id="name">
+                    <label for="name">Name</label>
+                </div>
+
+                <div class="input-field">
+                    <input type="text" name="gender" id="gender">
+                    <label for="gender">Gender</label>
+                </div>
+
+                <div class="input-field">
+                    <input type="text" name="age" id="age">
+                    <label for="age">Age</label>
+                </div>
+
+                <div class="input-field">
+                    <input type="text" name="height" id="height">
+                    <label for="height">Height</label>
+                </div>
+                <!-- <div class="input-field">
+                    <input type="text" name="img" placeholder="img url" />
+                </div> -->
+
+                <h4>Add Glam Squad </h4>
+                <div class="input-field">
+                    <input type="text" name="glam_squad" id="glam_squad">
+                    <label for="glam_squad">Glam squad</label>
+                </div>
+
+                <div class="input-field">
+                    <input type="text" name="makeup" id="makeup">
+                    <label for="makeup">Makeup</label>
+                </div>
+
+                <div class="input-field">
+                    <input type="text" name="hair" id="hair">
+                    <label for="hair">Hair</label>
+                </div>
+
+                <div class="input-field">
+                    <input type="text" name="wardrobe" id="wardrobe">
+                    <label for="wardrobe">Wardrobe</label>
+                </div>
+                <input type="submit" value="Add Artist 🔥" class="btn btn-secondary index-button"">
+                   
+    </div> 
+        <div class=" col s12 m6 l6 artist-lists" id="new-list">
+                <h3 class="center">List of Artists</h3>
+            </form>
+        </div>
+        <!-- <div class="col s12 m6 l6 glam-lists" id="newglam-list">
+            <h3 class="center">List of Glams</h3>
+            </form>
+        </div> -->
+</body>
+<script type="text/javascript" src="service/API.js"></script>
+<script type="text/javascript" src="models/artist.js"></script>
+<script type="text/javascript" src="models/glam.js"></script>
+<script type="text/javascript" src=" index.js"></script>
+
+</html>
