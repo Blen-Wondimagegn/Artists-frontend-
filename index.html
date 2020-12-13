@@ -10,19 +10,20 @@
     <link rel="stylesheet" href="css/index.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <!-- <style>
+    <style>
       body {
          background-image: url("https://i.pinimg.com/736x/47/2e/05/472e056c05aab842980e3af1ff08d9b1.jpg");
+        
         }
-    </style> -->
+    </style>
 
 <body>
     </head>
 
     <div class="row">
-        <div class="col s12 m6 l6">
-            <h2>ADD NEW ARTIST</h2>
-            <form id="artist-form" class="form-class" action="create">
+        <div class="col s12 m6 l6 ">
+            <form id="artist-form" class="wrapper" action="create">
+                <h2 class="center">ADD NEW ARTIST</h2>
                 <div class="input-field">
                     <input type="text" name="name" id="name">
                     <label for="name">Name</label>
@@ -73,10 +74,9 @@
                 <h3 class="center">List of Artists</h3>
             </form>
         </div>
-        <!-- <div class="col s12 m6 l6 glam-lists" id="newglam-list">
-            <h3 class="center">List of Glams</h3>
-            </form>
-        </div> -->
+        
+        <div class="col s12 m6 l6 glam-lists " id="newglam-list">
+        </div>
 </body>
 <script type="text/javascript" src="services/API.js"></script>
 <script type="text/javascript" src="models/artist.js"></script>

@@ -5,7 +5,7 @@ class Artist {
         this.gender = gender
         this.age = age
         this.height = height
-        // this.image = image
+        this.image = image
         this.renderArtist()
     }
     renderArtist() {
@@ -28,9 +28,9 @@ class Artist {
         // debugger 
         return `
         <div class="card">
-         <div class="card-content">
+         <div class="card-content rgb">
              <span class="card-title">${this.name}</span>
-             <img src="${this.image}" width="100" />
+             <img src="${this.image}" width="200" />
              <p>${this.gender}</p>
              <p>${this.age}</p>
              <p>${this.height}</p>
@@ -57,23 +57,21 @@ class Artist {
             })
     }
 
-    // createGlams(e) {
-    //      debugger
-    //     // find the show id from the dataset = e.target.dataset.id
-    //     let id = e.target.dataset.id
-
-    //     // fetch
-    //     fetch(`http://localhost:3000/artists/${id}/glams`)
-    //         .then(resp => resp.json())
-    //         .then(glams => {
-    //              // if (!glams.length === 0) {
-    //             glams.forEach(glam => {
-    //                 const { id, glam_squad, makeup, hair, werdrobe, artist_id } = glam 
-    //                 // create our new associated objects
-    //                 new Glam(id, glam_squad, makeup, hair, werdrobe, artist_id)
-    //             })
-    //         })
-    //     // }
-    // }
+    createGlams(e) {
+        //  debugger
+        // find the show id from the dataset = e.target.dataset.id
+        let id = e.target.dataset.id
+// alert(id)
+        // fetch
+        fetch(`http://localhost:3000/artists/${id}/glams`)
+            .then(resp => resp.json())
+            .then(glams => {
+                glams.forEach(glam => {
+                    const { id, glam_squad, makeup, hair, wardrobe, artist_id } = glam 
+                    // create our new associated objects
+                    new Glam(id, glam_squad, makeup, hair, wardrobe, artist_id)
+                })
+            })
+    }
 }
 
