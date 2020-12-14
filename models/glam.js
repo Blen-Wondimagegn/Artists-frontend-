@@ -10,12 +10,12 @@ class Glam {
     }
 
     renderGlam() {
-         debugger
-        const aHolder = document.getElementById('new-list')
+        //  debugger
+        const aHolder = document.getElementById('newglam-list')
         const aContainer = document.createElement('div')
         aContainer.dataset.id = this.id
         aContainer.id = this.id
-        aContainer.classList.add ="artist-lists"
+        aContainer.classList.add ="glam-lists"
         aContainer.innerHTML += this.glamHTML()
          aHolder.appendChild(aContainer)
         aContainer.addEventListener("click", e => {
@@ -26,7 +26,6 @@ class Glam {
     glamHTML() {
         // debugger 
         return `
-        <h3 class="center">List of Glams</h3>
         <div class="card">
          <div class="card-content">
              <span class="card-title">${this.glam_squad}</span>

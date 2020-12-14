@@ -5,7 +5,7 @@ class Artist {
         this.gender = gender
         this.age = age
         this.height = height
-        this.image = image
+        // this.image = image
         this.renderArtist()
     }
     renderArtist() {
@@ -15,6 +15,7 @@ class Artist {
         artistContainer.id = this.id
         artistContainer.classList.add = "artist-lists"
         artistContainer.innerHTML += this.artistHTML()
+        // this.createGlams()
         artistHolder.appendChild(artistContainer)
         artistContainer.addEventListener("click", e => {
             if (e.target.className === "glams-button") this.createGlams(e)
@@ -30,7 +31,6 @@ class Artist {
         <div class="card">
          <div class="card-content rgb">
              <span class="card-title">${this.name}</span>
-             <img src="${this.image}" width="200" />
              <p>${this.gender}</p>
              <p>${this.age}</p>
              <p>${this.height}</p>
@@ -75,3 +75,25 @@ class Artist {
     }
 }
 
+// rendList(){
+//     const listPlace = document.getElementById("list_container");
+//     const listContainer = document.createElement('div')
+//     listContainer.dataset.id = this.id
+//     listContainer.id = this.id
+//     listContainer.innerHTML += this.makeList()//-inside this div create the list for this object
+//     this.listItemsFetch()
+//     listPlace.appendChild(listContainer)
+//     listContainer.addEventListener('click', e => {
+//         if (e.target.className === 'delete') this.deleteList(e)
+//     })
+// }
+
+// rendListItems(){
+//     const listItemsPlace = document.getElementById(`item_container_${this.list_id}`);
+//     const listItemsContainer = document.createElement('div')
+//     listItemsContainer.dataset.id = this.id
+//     listItemsContainer.id = this.id
+//     listItemsContainer.innerHTML += this.makeListItems() //-inside this div create the list for this object
+//     debugger
+//     listItemsPlace.appendChild(listItemsContainer)
+// }

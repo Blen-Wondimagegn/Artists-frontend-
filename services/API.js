@@ -43,11 +43,5 @@ class API {
                 document.getElementById('artist-form').reset()
             })
     }
-    // clearForm() {
-    //     document.getElementById("name").value = ""
-    //     document.getElementById("gender").value = ""
-    //     document.getElementById("age").value = ""
-    //     document.getElementById("height").value = ""
-    // }
 
 }
