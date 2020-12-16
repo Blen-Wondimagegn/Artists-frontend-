@@ -1,11 +1,11 @@
 class Artist {
-    constructor(id, name, gender, age, height) {
+    constructor(id, name, gender, age, height, image) {
         this.id = id
         this.name = name
         this.gender = gender
         this.age = age
         this.height = height
-        // this.image = image
+         this.image = image
         this.renderArtist()
     }
     renderArtist() {
@@ -13,27 +13,57 @@ class Artist {
         const artistContainer = document.createElement('div')
         artistContainer.dataset.id = this.id
         artistContainer.id = this.id
-        artistContainer.classList.add = "artist-lists"
+        artistContainer.classList.add('artist-lists')
         artistContainer.innerHTML += this.artistHTML()
-        // this.createGlams()
         artistHolder.appendChild(artistContainer)
+        let glamsShow = false;
         artistContainer.addEventListener("click", e => {
-            if (e.target.className === "glams-button") this.createGlams(e)
+            if (e.target.className === "glams-button"){
+                // this.createGlams(e)
+                console.log(glamsShow)
+                if (glamsShow){
+                    this.hideGlams()
+                    glamsShow = false;
+                }
+                else{
+                    this.createGlams(e)
+                    glamsShow = true;
+                }
+
+            }
+            
             if (e.target.className.includes('delete')) this.deleteArtist(e)
             if (e.target.className.includes('header')) this.showArtist(e)
             // if (e.target.className === "form-class"){
         })
         // }
     }
+
+
+    hideGlams(){
+        const glamCards = document.getElementsByClassName('glam')
+        console.log(glamCards) 
+        // glamCards.forEach((glamCard) =>{
+        //  glamCard.remove()
+        // })   
+        let glamCardsLength = glamCards.length
+
+        for (let i = 0; i < glamCardsLength; i++){
+            console.log(glamCardsLength)
+            let glamCard = glamCards[0]
+            glamCard.remove()
+        }
+    }
     artistHTML() {
         // debugger 
         return `
         <div class="card">
          <div class="card-content rgb">
-             <span class="card-title">${this.name}</span>
-             <p>${this.gender}</p>
-             <p>${this.age}</p>
-             <p>${this.height}</p>
+             <span class="card-title"><h1>${this.name}</h1></span>
+             <img src="${this.image}" width="100" />
+             <p GENGER:> ${this.gender}</p>
+             <p AGE: >${this.age}</p>
+             <p HEIGHT:> ${this.height}</p>
              <button type="button" class="glams-button" data-id=${this.id}>Your Glam squads</button>
              <button class="delete">DELETE</button>
              </div>
@@ -41,7 +71,7 @@ class Artist {
    </div>`
     }
 
-    // delete
+    // delete2
     deleteArtist(e) {
         //  debugger
         const id = parseInt(e.target.parentElement.parentElement.parentElement.id)

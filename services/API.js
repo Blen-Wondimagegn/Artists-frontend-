@@ -19,7 +19,7 @@ class API {
             'gender': e.target.gender.value,
             'age': e.target.age.value,
             'height': e.target.height.value,
-            'image': e.target.img.value,
+           
             'glams_attributes': [{
                 'glam_squad': e.target.glam_squad.value,
                 'makeup': e.target.makeup.value,
