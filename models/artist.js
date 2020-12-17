@@ -1,66 +1,82 @@
 class Artist {
+    //initializing an artist 
     constructor(id, name, gender, age, height, image) {
+        //setting the attrbuits 
         this.id = id
         this.name = name
         this.gender = gender
         this.age = age
         this.height = height
-         this.image = image
+        //  this.image = image
+        //calling the renderArtist method to add the artist to the page 
         this.renderArtist()
     }
+
     renderArtist() {
+        //finding it by id then setting to a variable
         const artistHolder = document.getElementById('new-list')
+        //creating a new div 
         const artistContainer = document.createElement('div')
+        //adding a data-id to our newly created div 
         artistContainer.dataset.id = this.id
-        artistContainer.id = this.id
+        //setting the id of artistContainer to artist id 
+        artistContainer.id = "artist-" + this.id
+        //adding a artist-lists class to a artistContainer
         artistContainer.classList.add('artist-lists')
+        //adding HTML to artistContainer 
         artistContainer.innerHTML += this.artistHTML()
+        //taking arttisContainer and adding it to artistHolder 
         artistHolder.appendChild(artistContainer)
+        //creating a variable to show if the glams are showing 
         let glamsShow = false;
+        //when clicking on artistContainer ...
         artistContainer.addEventListener("click", e => {
+            //if glams button was clicked
             if (e.target.className === "glams-button"){
-                // this.createGlams(e)
-                console.log(glamsShow)
+               //if it glams are showing hid it 
                 if (glamsShow){
                     this.hideGlams()
                     glamsShow = false;
                 }
+                //else if it not showing then display it 
                 else{
                     this.createGlams(e)
                     glamsShow = true;
                 }
 
             }
-            
+            //if you click on delete button then delete the artist 
             if (e.target.className.includes('delete')) this.deleteArtist(e)
-            if (e.target.className.includes('header')) this.showArtist(e)
+
+            // if (e.target.className.includes('header')) this.showArtist(e)
             // if (e.target.className === "form-class"){
         })
         // }
     }
 
-
+    //method for hiding the glams with a click 
     hideGlams(){
+        //finding it by className then setting to a variable
         const glamCards = document.getElementsByClassName('glam')
-        console.log(glamCards) 
-        // glamCards.forEach((glamCard) =>{
-        //  glamCard.remove()
-        // })   
+    
         let glamCardsLength = glamCards.length
-
+        //a loop through our glams 
         for (let i = 0; i < glamCardsLength; i++){
-            console.log(glamCardsLength)
+         // grab the first one on the list 
             let glamCard = glamCards[0]
+            //remove 
             glamCard.remove()
         }
     }
+
+    // https://pm1.narvii.com/7166/4ec44a323dd9e17e05170dc2315aab9558b92270r1-850-567v2_hq.jpg
+
     artistHTML() {
         // debugger 
         return `
         <div class="card">
          <div class="card-content rgb">
              <span class="card-title"><h1>${this.name}</h1></span>
-             <img src="${this.image}" width="100" />
              <p GENGER:> ${this.gender}</p>
              <p AGE: >${this.age}</p>
              <p HEIGHT:> ${this.height}</p>
@@ -71,10 +87,10 @@ class Artist {
    </div>`
     }
 
-    // delete2
+    // 
     deleteArtist(e) {
         //  debugger
-        const id = parseInt(e.target.parentElement.parentElement.parentElement.id)
+        const id = parseInt(e.target.parentElement.parentElement.parentElement.dataset.id)
         fetch(`http://localhost:3000/artists/${id}`, {
             method: 'DELETE',
             headers: {
@@ -82,16 +98,16 @@ class Artist {
             }
         })
             .then(() => {
-
-                document.getElementById('new-list').removeChild(document.getElementById(id))
+                     //
+                document.getElementById('new-list').removeChild(document.getElementById("artist-" + id))
             })
     }
 
     createGlams(e) {
-        //  debugger
+        
         // find the show id from the dataset = e.target.dataset.id
+        //
         let id = e.target.dataset.id
-// alert(id)
         // fetch
         fetch(`http://localhost:3000/artists/${id}/glams`)
             .then(resp => resp.json())
@@ -105,25 +121,3 @@ class Artist {
     }
 }
 
-// rendList(){
-//     const listPlace = document.getElementById("list_container");
-//     const listContainer = document.createElement('div')
-//     listContainer.dataset.id = this.id
-//     listContainer.id = this.id
-//     listContainer.innerHTML += this.makeList()//-inside this div create the list for this object
-//     this.listItemsFetch()
-//     listPlace.appendChild(listContainer)
-//     listContainer.addEventListener('click', e => {
-//         if (e.target.className === 'delete') this.deleteList(e)
-//     })
-// }
-
-// rendListItems(){
-//     const listItemsPlace = document.getElementById(`item_container_${this.list_id}`);
-//     const listItemsContainer = document.createElement('div')
-//     listItemsContainer.dataset.id = this.id
-//     listItemsContainer.id = this.id
-//     listItemsContainer.innerHTML += this.makeListItems() //-inside this div create the list for this object
-//     debugger
-//     listItemsPlace.appendChild(listItemsContainer)
-// }
