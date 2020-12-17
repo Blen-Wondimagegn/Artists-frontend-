@@ -34,7 +34,6 @@ class Glam {
              <p>${this.hair}</p>
              <p>${this.wardrobe}</p>
              <button class="delete">DELETE</button>
-             <button type="button" class="commebt-button" >Review</button>
              </div>
        </div>
    </div>`

@@ -2,15 +2,22 @@ class API {
     // move our initial fetch into a function here 
 
     static addArtists() {
+        //geting list of artists from API 
         fetch("http://localhost:3000/artists")
+            //once we get the list parsed to JSON(object)
             .then(resp => resp.json())
+            //once JSON is parsed then... 
             .then(artists => {
+                //iterate through artist list 
                 artists.forEach(artist => {
+                    //grabing attrbuits from artist 
                     const { id, name, gender, age, height, image} = artist
+                    //using the att from above and creating an instance of an artist 
                     new Artist(id, name, gender, age, height, image)
                 })
             })
     }
+    
     static createArtists(e) {
         // debugger
         e.preventDefault()
