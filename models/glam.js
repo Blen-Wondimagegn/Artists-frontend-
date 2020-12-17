@@ -5,7 +5,6 @@ class Glam {
         this.makeup = makeup
         this.hair = hair
         this.wardrobe = wardrobe
-        // this.comments = this.comments
         this.artist_id = artist_id
         this.renderGlam()
     }
@@ -50,7 +49,6 @@ deleteGlam(e) {
             }
         })
             .then(() => {
-
                 document.getElementById(`artist-${this.artist_id}`).removeChild(document.getElementById(id))
             })
     }
