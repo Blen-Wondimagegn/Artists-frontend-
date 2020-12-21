@@ -1,13 +1,12 @@
 class API {
     // move our initial fetch into a function here 
     static addArtists() {
-
         fetch("http://localhost:3000/artists")   
             .then(resp => resp.json())
             .then(artists => {
                 artists.forEach(artist => {
-                    const { id, name, gender, age, height, image} = artist
-                    new Artist(id, name, gender, age, height, image)
+                    const { id, name, gender, age, height} = artist
+                    new Artist(id, name, gender, age, height)
                 })
             })
     }
@@ -38,8 +37,8 @@ class API {
             .then(resp => resp.json())
             .then(artist => {
                 // debugger
-                const { id, name, gender, age, height, image } = artist
-                new Artist(id, name, gender, age, height, image)
+                const { id, name, gender, age, height} = artist
+                new Artist(id, name, gender, age, height)
                 document.getElementById('artist-form').reset()
             })
     }

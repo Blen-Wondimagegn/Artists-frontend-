@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 
 <head>
@@ -9,12 +9,31 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ultra&display=swap" rel="stylesheet">
 
     <style>
       body {
          background-image: url("https://i.pinimg.com/736x/47/2e/05/472e056c05aab842980e3af1ff08d9b1.jpg");
-        
         }
+        h2{
+           font-family: 'Ultra', serif; 
+        }
+         h3{
+           font-family: 'Ultra', serif; 
+        }
+         h4{
+              font-family: 'Ultra', serif; 
+         }
+          h1{
+             font-family: 'Lobster', cursive;
+         }
+         p{
+             
+             font-family: 'Fredoka One', cursive;
+
+         }
+         
     </style>
 
 <body>
@@ -23,7 +42,7 @@
     <div class="row">
         <div class="col s12 m6 l6 ">
             <form id="artist-form" class="wrapper" action="create">
-                <h2 class="center">ADD NEW ARTIST</h2>
+                <h4 class="center" id="title">ADD NEW ARTIST</h4>
                 <div class="input-field">
                     <input type="text" name="name" id="name">
                     <label for="name">Name</label>
@@ -43,11 +62,9 @@
                     <input type="text" name="height" id="height">
                     <label for="height">Height</label>
                 </div>
-                <!-- <div class="input-field">
-                    <input type="text" name="img" placeholder="img url" />
-                </div> -->
+               
 
-                <h4>Add Glam Squad </h4>
+                <h4 class = "center">Add Glam Squad </h4>
                 <div class="input-field">
                     <input type="text" name="glam_squad" id="glam_squad">
                     <label for="glam_squad">Glam squad</label>
@@ -72,7 +89,7 @@
     </div> 
     </form>
         <div class=" col s12 m6 l6 artist-lists" id="new-list">
-                <h3 class="center">List of Artists</h3>
+                <h3 class="center wrapper" id="list">List of Artists</h3>
         </div>
 </body>
 <script type="text/javascript" src="services/API.js"></script>
@@ -80,4 +97,5 @@
 <script type="text/javascript" src="models/glam.js"></script>
 <script type="text/javascript" src=" index.js"></script>
 
-</html>
+</html> 
+

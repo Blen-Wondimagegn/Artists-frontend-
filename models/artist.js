@@ -40,10 +40,8 @@ class Artist {
         const glamCards = document.getElementsByClassName('glam')
         let glamCardsLength = glamCards.length
         //a loop through our glams 
-        for (let i = 0; i < glamCardsLength; i++){
-         // grab the first one on the list 
-            let glamCard = glamCards[0]
-            //remove 
+        for (let i = 0; i < glamCardsLength; i++){ 
+            let glamCard = glamCards[0] 
             glamCard.remove()
         }
     }
@@ -64,9 +62,7 @@ class Artist {
    </div>`
     }
 
-    // 
     deleteArtist(e) {
-        //  debugger
         const id = parseInt(e.target.parentElement.parentElement.parentElement.dataset.id)
         fetch(`http://localhost:3000/artists/${id}`, {
             method: 'DELETE',
@@ -75,16 +71,16 @@ class Artist {
             }
         })
             .then(() => {
-                     //
+                    
                 document.getElementById('new-list').removeChild(document.getElementById("artist-" + id))
             })
     }
 
     createGlams(e) {
         
-        // find the show id from the dataset = e.target.dataset.id
+        // find the glam id from the dataset 
         let id = e.target.dataset.id
-        // fetch
+        
         fetch(`http://localhost:3000/artists/${id}/glams`)
             .then(resp => resp.json())
             .then(glams => {
